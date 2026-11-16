@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desafio R$ 50 mil até 2027 | Import Money</title>
+<meta name="description" content="Junte R$ 50.000 até o fim de 2027 com uma tabela de 198 depósitos de R$ 10 a R$ 500. Marque cada valor guardado e acompanhe a barra de progresso. É grátis.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="icone-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://desafio.importmoney.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://desafio.importmoney.com/">
+<meta property="og:title" content="Desafio R$ 50 mil até 2027 | Import Money">
+<meta property="og:description" content="Junte R$ 50.000 até o fim de 2027 com uma tabela de 198 depósitos de R$ 10 a R$ 500. Marque cada valor guardado e acompanhe a barra de progresso. É grátis.">
+<meta property="og:image" content="https://desafio.importmoney.com/compartilhar.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="628">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<!--
+  DESAFIO R$ 50 MIL — VITRINE (página rápida, fora do Wix): https://desafio.importmoney.com/ (GitHub Pages, repo importmoney/desafio)
+  Gerada por "Desafio 50 mil/_desenvolvimento/build-vitrine.mjs" a partir de desafio-50-mil.html: não edite aqui.
+  A tabela fica travada; "Criar conta grátis" / "Já tenho conta" levam à página do Wix (/desafio-50-mil), onde ficam o login e a tabela salva.
+-->
+<style>
+  :root{
+    --bg:#000;--surface:#0c1310;--surface2:#111a16;--surface3:#17221d;--border:#1d2622;--border2:#2a3832;
+    --text:#f3f7f4;--text2:#a6b1ab;--text3:#7a867f;
+    --green:#2ec98e;--green-hover:#3ee0a0;--green-dim:rgba(46,201,142,.14);--green-ink:#04140c;
+    --gold:#ffd23f;--gold-dim:rgba(255,210,63,.12);--red:#f5716a;
+    --radius:16px;--maxw:1120px;
+    --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --mono:'DM Mono',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  a{color:inherit}
+  .ic{width:1em;height:1em;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ── Topo ───────────────────────────────────────────── */
+  .topo{position:relative;padding:44px 0 30px}
+  .topo::before{content:"";position:absolute;left:0;right:0;top:0;height:560px;pointer-events:none;z-index:-1;
+    background:radial-gradient(680px 360px at 10% 0%,rgba(46,201,142,.17),transparent 70%),radial-gradient(520px 320px at 95% 6%,rgba(255,210,63,.07),transparent 70%)}
+  .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:36px;align-items:start}
+  .selo-topo{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.9px;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid rgba(46,201,142,.28);padding:5px 12px 5px 8px;border-radius:999px}
+  .selo-topo svg{width:15px;height:15px}
+  h1{font-size:46px;line-height:1.08;letter-spacing:-1.4px;font-weight:800;margin:16px 0 14px}
+  h1 em{font-style:normal;color:var(--green)}
+  .lead{font-size:17px;color:var(--text2);max-width:560px}
+  .lead b{color:var(--text)}
+  .fatos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0}
+  .fato{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+  .fato .ic{color:var(--green);font-size:18px;margin-bottom:6px;display:block}
+  .fato b{display:block;font-size:20px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
+  .fato small{display:block;font-size:12px;color:var(--text3);line-height:1.35}
+  .passos{list-style:none;display:grid;gap:12px;margin:0 0 24px;counter-reset:p}
+  .passos li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start}
+  .passos li::before{counter-increment:p;content:counter(p);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);border:1px solid var(--border2);color:var(--green);font-weight:800;font-size:13px}
+  .passos b{display:block;font-size:14.5px;line-height:1.35;margin-top:4px}
+  .passos span{display:block;font-size:13.5px;color:var(--text2)}
+  .cta{min-height:50px}
+  .cta-entrar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .cta-ok{display:none;align-items:center;gap:10px;font-size:14px;color:var(--text2);background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;min-height:50px}
+  .cta-ok .ic{color:var(--green);font-size:18px}
+  .cta-ok b{color:var(--text)}
+  .logado .cta-entrar{display:none}
+  .logado .cta-ok{display:flex}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;transition:background .15s,border-color .15s,opacity .15s;min-height:48px}
+  .btn-p{background:var(--green);color:var(--green-ink)}
+  .btn-p:hover{background:var(--green-hover)}
+  .btn-s{border:1px solid var(--border2);color:var(--text)}
+  .btn-s:hover{border-color:var(--green)}
+  .btn:focus-visible,.aba:focus-visible,.ad:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  .btn[aria-busy="true"]{opacity:.65;cursor:wait}
+
+  /* ── Cartão de progresso ────────────────────────────── */
+  .card{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:var(--radius)}
+  .progresso{padding:22px;position:relative;overflow:hidden}
+  .prog-topo{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+  .prog-topo h2{font-size:15px;font-weight:700}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);border:1px solid var(--border2);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .prog-valor{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+  .prog-valor strong{font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.1}
+  .prog-valor span{color:var(--text3);font-size:14px}
+  .barra{height:14px;border-radius:999px;background:#17221d;overflow:hidden;margin:14px 0 8px;border:1px solid #223029}
+  .barra>span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#1f9e70,var(--green) 60%,#62e6b3);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .barra.fina{height:8px;margin:8px 0 6px}
+  .prog-pct{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;white-space:nowrap}
+  .prog-pct b{color:var(--green)}
+  .prog-pct span{color:var(--text2)}
+  .prog-nums{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .prog-nums div{background:rgba(0,0,0,.28);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+  .prog-nums small{display:block;font-size:11.5px;color:var(--text3);line-height:1.35;margin-bottom:2px}
+  .prog-nums b{font-size:17px;white-space:nowrap}
+  .mes,.festa{border-top:1px solid var(--border);padding-top:14px;min-height:150px}
+  .mes-topo{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .mes-topo span{font-size:13px;color:var(--text2);display:inline-flex;align-items:center;gap:6px}
+  .mes-topo span .ic{color:var(--gold)}
+  .mes-topo b{font-size:18px;white-space:nowrap}
+  .mes .barra>span{background:linear-gradient(90deg,#c79b1c,var(--gold))}
+  .mes-sub{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--text3);white-space:nowrap}
+  .mes p{font-size:13px;color:var(--text2);margin-top:8px}
+  .mes p b{color:var(--text)}
+  .festa{display:none;flex-direction:column;justify-content:center;gap:6px;color:var(--gold)}
+  .festa b{font-size:20px;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+  .festa span{color:var(--text2);font-size:13.5px}
+  .completo .festa{display:flex}
+  .completo .mes{display:none}
+  .prog-aviso{margin-top:12px;font-size:12.5px;color:var(--text3);display:flex;gap:8px;align-items:flex-start;min-height:38px}
+  .prog-aviso .ic{font-size:15px;margin-top:2px}
+
+  /* ── Tabela ─────────────────────────────────────────── */
+  .tabela{padding:14px 0 8px}
+  .tab-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 20px;margin-bottom:14px;flex-wrap:wrap}
+  .tab-cab h2{font-size:26px;letter-spacing:-.6px;font-weight:800;line-height:1.2}
+  .tab-cab p{color:var(--text2);font-size:14px;margin-top:4px}
+  .legenda{display:flex;gap:16px;font-size:12.5px;color:var(--text2)}
+  .legenda span{display:inline-flex;align-items:center;gap:6px}
+  .lg{width:14px;height:14px;border-radius:4px;display:inline-block}
+  .lg.a{background:var(--surface2);border:1px solid var(--border2)}
+  .lg.g{background:var(--green)}
+  .tab-barra{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 16px;margin-bottom:14px}
+  .tab-barra .barra{margin:0 0 9px;height:10px}
+  .tab-linha{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;height:22px;white-space:nowrap}
+  .tab-linha .res{overflow:hidden;text-overflow:ellipsis}
+  .tab-linha .res b{color:var(--green)}
+  .status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text3);flex-shrink:0}
+  .status .ic{font-size:14px}
+  .status.ok{color:var(--green)}
+  .status.erro{color:var(--red)}
+  .abas{display:none}
+  .area{position:relative}
+  .rodadas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;transition:filter .3s,opacity .3s}
+  .rodada{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;transition:border-color .3s,box-shadow .3s}
+  .rodada.concluida{border-color:rgba(46,201,142,.55);box-shadow:inset 0 0 0 1px rgba(46,201,142,.2)}
+  .rodada.festeja{animation:brilho 1.2s ease}
+  @keyframes brilho{0%{box-shadow:0 0 0 0 rgba(46,201,142,.55)}100%{box-shadow:0 0 0 18px rgba(46,201,142,0)}}
+  /* cabeçalho da rodada em grade fixa (2 × 2, sem quebra de linha): a altura não muda quando a rodada é concluída */
+  .rod-cab{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:baseline;white-space:nowrap}
+  .rod-cab h3{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px;line-height:1.35;overflow:hidden}
+  .rod-cab b{font-size:14px;text-align:right;line-height:1.35}
+  .rod-cab small{font-size:12px;color:var(--text3);overflow:hidden;text-overflow:ellipsis}
+  .rod-cab small+small{text-align:right}
+  .ok-rod{display:none;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--green-ink);background:var(--green);border-radius:999px;padding:2px 8px}
+  .concluida .ok-rod{display:inline-block}
+  .grade{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;margin-top:6px}
+  .cel{position:relative;aspect-ratio:1/1;min-height:34px;border-radius:9px;background:var(--surface2);border:1px solid var(--border2);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;transition:background .18s,border-color .18s,transform .12s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+  .cel .rs{font-size:8.5px;color:var(--text3);font-weight:600;margin-bottom:3px}
+  .cel .v{font-size:13px;font-weight:800;letter-spacing:-.3px}
+  .cel .ok{position:absolute;top:3px;right:3px;width:10px;height:10px;opacity:0;stroke-width:3.5}
+  @media (hover:hover){.cel:not(.vazia):hover{border-color:var(--green);background:var(--surface3)}.cel.g:hover{background:linear-gradient(160deg,#4ee3aa,#22b67f)}}
+  .cel:not(.vazia):active{transform:scale(.93)}
+  .cel:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .cel.g{background:linear-gradient(160deg,#3bd99c,#1fae78);border-color:#3bd99c;color:var(--green-ink)}
+  .cel.g .rs{color:rgba(4,20,12,.68)}
+  .cel.g .ok{opacity:1;color:var(--green-ink)}
+  .cel.pop{animation:pop .35s ease}
+  @keyframes pop{0%{transform:scale(.84)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
+  .cel.vazia{background:transparent;border:1px dashed var(--border2);cursor:default}
+  .cel.trofeu{color:var(--text3)}
+  .cel.trofeu .ic{width:46%;height:46%}
+  .completo .cel.trofeu{color:var(--gold);border:1px solid var(--gold);background:var(--gold-dim)}
+  .flut{position:absolute;left:50%;top:0;font-size:12px;font-weight:800;color:var(--green);white-space:nowrap;pointer-events:none;z-index:3;text-shadow:0 1px 6px rgba(0,0,0,.8);animation:flut .9s ease-out forwards}
+  @keyframes flut{0%{opacity:0;transform:translate(-50%,0)}15%{opacity:1}100%{opacity:0;transform:translate(-50%,-150%)}}
+
+  /* trava (quem não entrou): a tabela aparece embaçada, com o login por cima */
+  .area.travada .rodadas{filter:blur(4px);opacity:.55;pointer-events:none;-webkit-user-select:none;user-select:none}
+  .trava{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:5}
+  .travada .trava{display:flex}
+  .trava-card{max-width:430px;width:100%;text-align:center;background:rgba(12,19,16,.95);border:1px solid var(--border2);border-radius:18px;padding:28px 24px;box-shadow:0 24px 60px rgba(0,0,0,.65)}
+  .trava-ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:var(--green-dim);color:var(--green)}
+  .trava-ic .ic{width:25px;height:25px}
+  .trava-ic.alerta{background:rgba(245,113,106,.12);color:var(--red)}
+  .trava-card h3{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px;line-height:1.3}
+  .trava-card p{font-size:14px;color:var(--text2);margin-bottom:18px}
+  .trava-btns{display:grid;gap:10px}
+  .trava-nota{font-size:12.5px;color:var(--text3);margin-top:12px;min-height:19px}
+  .trava-nota.erro{color:var(--red)}
+  .giro{width:30px;height:30px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--green);animation:gira .8s linear infinite;margin:6px auto 16px}
+  @keyframes gira{to{transform:rotate(360deg)}}
+  .confete{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:6}
+  .confete i{position:absolute;top:-14px;width:8px;height:13px;border-radius:2px;animation:cai 2.6s cubic-bezier(.25,.6,.45,1) forwards}
+  @keyframes cai{to{top:100%;transform:translateX(var(--dx)) rotate(560deg);opacity:.15}}
+
+  /* ── Banners ────────────────────────────────────────── */
+  .secao{padding:44px 0 8px}
+  .sec-tit{font-size:26px;font-weight:800;letter-spacing:-.6px;line-height:1.2}
+  .sec-sub{color:var(--text2);font-size:14.5px;margin:6px 0 18px;max-width:660px}
+  .promo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .ad{
+    --ad-bg:#000;--ad-border:#1d2622;--ad-border-hover:#2ec98e;--ad-text:#f3f7f4;--ad-text2:#a6b1ab;
+    --ad-chip-bg:rgba(46,201,142,.14);--ad-chip-text:#2ec98e;--ad-btn-bg:#2ec98e;--ad-btn-text:#04140c;--ad-btn-hover:#3ee0a0;
+    display:grid;grid-template-columns:1fr;position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--ad-border);
+    background:var(--ad-bg);color:var(--ad-text);text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s
+  }
+  .ad:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.4);border-color:var(--ad-border-hover)}
+  .ad-fin{--ad-bg:linear-gradient(135deg,#f6fbf8 0%,#d9eee2 100%);--ad-border:#c4ddcf;--ad-border-hover:#1f7a55;--ad-text:#0d2a1e;--ad-text2:#3b5a4c;--ad-chip-bg:rgba(23,125,88,.13);--ad-chip-text:#14583c;--ad-btn-bg:#14583c;--ad-btn-text:#fff;--ad-btn-hover:#0f4630}
+  .ad-mon{--ad-bg:radial-gradient(120% 140% at 100% 0%,rgba(46,201,142,.2) 0%,rgba(46,201,142,0) 55%),linear-gradient(135deg,#06150f 0%,#000 70%)}
+  .ad-art{position:relative;height:200px;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
+  .ad-art svg{position:absolute;inset:0;width:100%;height:100%}
+  .ad-art text{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+  .ad-copy{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:16px 24px 24px}
+  .ad-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.9px;text-transform:uppercase;color:var(--ad-chip-text);background:var(--ad-chip-bg);padding:4px 11px 4px 7px;border-radius:999px}
+  .ad-chip svg{width:14px;height:14px;flex-shrink:0}
+  .ad-title{font-size:21px;font-weight:800;letter-spacing:-.4px;line-height:1.22}
+  .ad-text{font-size:13.5px;line-height:1.5;color:var(--ad-text2)}
+  .ad-btn{display:inline-flex;align-items:center;gap:6px;margin-top:4px;background:var(--ad-btn-bg);color:var(--ad-btn-text);font-size:13.5px;font-weight:700;padding:11px 20px;border-radius:999px;transition:background .15s}
+  .ad:hover .ad-btn{background:var(--ad-btn-hover)}
+  .ad-note{font-size:10.5px;color:var(--ad-text2);opacity:.75}
+
+  /* ── Perguntas ──────────────────────────────────────── */
+  .faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .qa{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+  .qa h3{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.35}
+  .qa p{font-size:13.5px;color:var(--text2)}
+  .rodape{padding:30px 0 36px;color:var(--text3);font-size:12px;text-align:center}
+
+  @media (max-width:899px){.rodadas{grid-template-columns:1fr}}
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:24px}
+    h1{font-size:38px}
+  }
+  @media (max-width:760px){
+    .promo-grid,.faq-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:599px){
+    .wrap{padding:0 16px}
+    .topo{padding:26px 0 18px}
+    h1{font-size:30px;letter-spacing:-.9px;margin:14px 0 10px}
+    .lead{font-size:15.5px}
+    .fatos{gap:8px;margin:18px 0}
+    .fato{padding:10px}
+    .fato b{font-size:15px}
+    .fato small{font-size:11px}
+    .passos{gap:10px;margin-bottom:18px}
+    /* topo com a mesma altura antes e depois de entrar (os dois botões empilhados = 106 px) */
+    .cta{min-height:106px}
+    .cta-entrar .btn{width:100%}
+    .progresso{padding:18px}
+    .mes,.festa{min-height:184px}
+    .prog-valor strong{font-size:28px}
+    .prog-valor span{font-size:13px}
+    .prog-nums{gap:8px}
+    .prog-nums div{padding:9px 10px}
+    .prog-nums b{font-size:15px}
+    .tab-cab h2,.sec-tit{font-size:22px}
+    .tab-barra{padding:11px 12px}
+    .tab-linha{font-size:12.5px;height:auto;flex-direction:column;align-items:flex-start;gap:2px}
+    .tab-linha>span{height:20px;line-height:20px;max-width:100%}
+    .tab-linha .tf{display:none}
+    .status{font-size:12px}
+    .ok-rod{display:none!important}
+    .abas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:10px}
+    .aba{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:7px 2px;font-size:12px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1.25}
+    .aba small{font-size:11px;color:var(--text3);font-weight:600}
+    .aba[aria-pressed="true"]{border-color:var(--green);background:var(--green-dim)}
+    .aba.feita small{color:var(--green)}
+    .rodada{padding:12px}
+    .rodada:not(.ativa){display:none}
+    .grade{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+    .cel .v{font-size:15px}
+    .cel .rs{font-size:9px}
+    .trava{padding:12px}
+    .trava-card{padding:24px 18px}
+    .ad-art{height:170px}
+    .ad-copy{padding:14px 18px 20px}
+    .ad-title{font-size:19px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5.5a4 4 0 0 1-8 0V4z"/><path d="M8 6.5H5.2a3 3 0 0 0 3.3 3.9M16 6.5h2.8a3 3 0 0 1-3.3 3.9M12 13.5v3.5M8.5 20.5h7M10 17h4v3.5h-4z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 10a4 4 0 0 1-.7 8.5z"/><path d="M9.5 14l2 2 3.6-3.6"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5h.01"/></symbol>
+</svg>
+
+<div id="raiz">
+<header class="topo">
+  <div class="wrap hero">
+    <div>
+      <span class="selo-topo"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg>Desafio Import Money · 2027</span>
+      <h1>Junte <em>R$&nbsp;50 mil</em> até o fim de 2027</h1>
+      <p class="lead">Uma tabela com <b>198 valores, de R$&nbsp;10 a R$&nbsp;500</b>. Guardou o valor de uma casinha? Toque nela para marcar. A barra mostra quanto você já juntou e quanto falta.</p>
+      <div class="fatos">
+        <div class="fato"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg><b>R$&nbsp;50.000</b><small>objetivo final</small></div>
+        <div class="fato"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg><b>198</b><small>depósitos de R$&nbsp;10 a R$&nbsp;500</small></div>
+        <div class="fato"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><b>dez/2027</b><small>prazo do desafio</small></div>
+      </div>
+      <ol class="passos">
+        <li><div><b>Crie sua conta grátis ou entre</b><span>Seu progresso fica salvo e aparece no celular e no computador.</span></div></li>
+        <li><div><b>Guarde o valor de uma casinha</b><span>No cofrinho, na caixinha do banco ou na poupança. Escolha o valor que couber no seu mês.</span></div></li>
+        <li><div><b>Toque na casinha para marcar</b><span>A barra de progresso atualiza na hora. Tocou errado? Toque de novo para desmarcar.</span></div></li>
+      </ol>
+      <div class="cta">
+        <div class="cta-entrar">
+          <button type="button" class="btn btn-p" data-login="signup">Começar meu desafio grátis</button>
+          <button type="button" class="btn btn-s" data-login="login">Já tenho conta</button>
+        </div>
+        <div class="cta-ok"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg><span id="cta-ok-txt"><b>Sua tabela fica salva na sua conta.</b> Continue de onde parou.</span></div>
+      </div>
+    </div>
+
+    <aside class="card progresso" id="progresso" aria-labelledby="prog-tit">
+      <div class="prog-topo"><h2 id="prog-tit">Seu progresso</h2><span class="chip">Meta R$&nbsp;50 mil</span></div>
+      <div class="prog-valor"><strong id="p-guardado">R$&nbsp;0</strong><span>de R$&nbsp;50.000</span></div>
+      <div class="barra" id="p-barra" role="progressbar" aria-label="Progresso do desafio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="p-fill"></span></div>
+      <div class="prog-pct"><b id="p-pct">0% concluído</b><span id="p-falta">Falta R$&nbsp;50.000</span></div>
+      <div class="prog-nums">
+        <div><small>Casinhas marcadas</small><b id="p-cas">0 de 198</b></div>
+        <div><small>Rodadas concluídas</small><b id="p-rod">0 de 4</b></div>
+      </div>
+      <div class="mes" id="mes">
+        <div class="mes-topo"><span><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span id="m-tit">Meta do mês</span></span><b id="m-meta">R$&nbsp;0</b></div>
+        <div class="barra fina" aria-hidden="true"><span id="m-fill"></span></div>
+        <div class="mes-sub"><span id="m-feito">R$&nbsp;0 guardados neste mês</span><span id="m-pct">0%</span></div>
+        <p id="m-texto"></p>
+      </div>
+      <div class="festa" id="festa">
+        <b><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Desafio concluído!</b>
+        <span>Você marcou as 198 casinhas e juntou R$&nbsp;50.000. Parabéns pela disciplina!</span>
+      </div>
+      <p class="prog-aviso" id="p-aviso"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span id="p-aviso-txt">Entre na sua conta para começar a marcar a sua tabela.</span></p>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="wrap tabela" id="tabela" aria-labelledby="tab-tit">
+    <div class="tab-cab">
+      <div>
+        <h2 id="tab-tit">Sua tabela do desafio</h2>
+        <p>Quatro rodadas de R$&nbsp;10 em R$&nbsp;10. Marque em qualquer ordem.</p>
+      </div>
+      <div class="legenda" aria-hidden="true"><span><i class="lg a"></i>A guardar</span><span><i class="lg g"></i>Guardado</span></div>
+    </div>
+    <div class="tab-barra">
+      <div class="barra" aria-hidden="true"><span id="t-fill"></span></div>
+      <div class="tab-linha">
+        <span class="res"><b id="t-pct">0%</b> · <span id="t-resumo">R$&nbsp;0 de R$&nbsp;50.000</span></span>
+        <span class="status" id="t-status" role="status"></span>
+      </div>
+    </div>
+    <div class="abas" id="abas" aria-label="Rodadas"></div>
+    <div class="area travada" id="area">
+      <div class="rodadas" id="rodadas"></div>
+      <div class="trava" id="trava"><div class="trava-card" id="trava-card" role="region" aria-live="polite" aria-label="Acesso à tabela"></div></div>
+    </div>
+  </section>
+
+  <section class="wrap secao" aria-labelledby="promo-tit">
+    <h2 class="sec-tit" id="promo-tit">Ferramentas para acelerar o seu desafio</h2>
+    <p class="sec-sub">Saber para onde vai o dinheiro ajuda a encontrar o valor da próxima casinha. E quando a caixinha crescer, acompanhe seus investimentos em um só lugar.</p>
+    <div class="promo-grid" id="promo"></div>
+  </section>
+
+  <section class="wrap secao" aria-labelledby="faq-tit">
+    <h2 class="sec-tit" id="faq-tit">Perguntas frequentes</h2>
+    <p class="sec-sub">Tudo o que você precisa saber para começar hoje.</p>
+    <div class="faq-grid">
+      <div class="qa"><h3>Preciso seguir uma ordem?</h3><p>Não. Escolha a casinha do valor que você conseguiu guardar, em qualquer rodada. O importante é marcar só depois de colocar o dinheiro na caixinha.</p></div>
+      <div class="qa"><h3>Quanto preciso guardar por mês?</h3><p>Depende de quando você começa. O quadro "Seu progresso" divide o que falta pelos meses até dezembro de 2027 e mostra a meta do mês, que se ajusta conforme você avança.</p></div>
+      <div class="qa"><h3>E se eu marcar uma casinha errada?</h3><p>Toque de novo nela para desmarcar. A barra de progresso volta na hora.</p></div>
+      <div class="qa"><h3>Onde fica salvo o meu progresso?</h3><p>Na sua conta da Import Money. Entre com o mesmo e-mail no celular ou no computador e a tabela aparece do jeito que você deixou.</p></div>
+      <div class="qa"><h3>Por que as rodadas 3 e 4 vão até R$&nbsp;490?</h3><p>Para a soma fechar em R$&nbsp;50.000 exatos: duas rodadas de R$&nbsp;10 a R$&nbsp;500 (R$&nbsp;12.750 cada) e duas de R$&nbsp;10 a R$&nbsp;490 (R$&nbsp;12.250 cada).</p></div>
+      <div class="qa"><h3>O desafio é gratuito?</h3><p>Sim. Basta criar a sua conta grátis na Import Money para usar a tabela e salvar o seu progresso.</p></div>
+    </div>
+  </section>
+  <p class="wrap rodape">O Desafio R$&nbsp;50 mil é uma ferramenta de organização para guardar dinheiro. Não é recomendação de investimento.</p>
+</main>
+</div>
+<div class="sr" aria-live="polite" id="anuncio"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Configuração ────────────────────────────────────────────────────
+  var META = 50000;
+  var PRAZO_ANO = 2027, PRAZO_MES = 12;            // o desafio vai até dezembro de 2027 (inclusive)
+  var VERSAO_TABELA = '4r-50k';                    // muda só se a tabela mudar (o backend recusa outra versão)
+  var RODADAS = [50, 50, 49, 49];                  // casinhas por rodada (R$ 10 em R$ 10): 12.750 + 12.750 + 12.250 + 12.250
+  var PAGINA_NO_SITE = 'https://www.importmoney.com/desafio-50-mil';
+  var LINK_FINANCES = 'https://financas.importmoney.com/';
+  var LINK_MONEY = 'https://invest.importmoney.com/';
+  var MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+  // ── A tabela ────────────────────────────────────────────────────────
+  var CELULAS = [], RODS = [];
+  (function () {
+    var i = 0;
+    RODADAS.forEach(function (n, r) {
+      var rod = { r: r, n: n, total: 0, cel: [] };
+      for (var k = 1; k <= n; k++) {
+        var c = { i: i++, r: r, valor: k * 10, el: null };
+        CELULAS.push(c); rod.cel.push(c); rod.total += c.valor;
+      }
+      RODS.push(rod);
+    });
+  })();
+  var SOMA = CELULAS.reduce(function (s, c) { return s + c.valor; }, 0);
+  if (SOMA !== META) console.error('[Desafio] a tabela soma ' + SOMA + ', não ' + META);
+
+  // ── Estado ──────────────────────────────────────────────────────────
+  var NO_WIX = window.parent !== window;
+  var S = {
+    fase: 'carregando',     // carregando | visitante | erro | semresposta | fora | pronto
+    marcados: new Map(),    // índice da casinha → 'aaaa-mm-dd' (dia em que foi marcada)
+    nome: '', membro: '', demo: false,
+    velo: false, entrando: false, janelaLogin: 0, tentLogin: 0,
+    versaoLocal: 0, versaoSalva: 0, aba: 0, erroTrava: '', notaTrava: ''
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var raiz = $('raiz'), area = $('area');
+  var reduzMov = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Formatos ────────────────────────────────────────────────────────
+  var nf0 = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+  function brl(v) { return 'R$\u00a0' + nf0.format(v); }
+  function pctTxt(p) {
+    if (p >= 1) return '100%';
+    if (p <= 0) return '0%';
+    var x = p * 100, casas = x < 1 ? 2 : 1;
+    return x.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }) + '%';
+  }
+  function dois(n) { return (n < 10 ? '0' : '') + n; }
+  function hojeIso() { var d = new Date(); return d.getFullYear() + '-' + dois(d.getMonth() + 1) + '-' + dois(d.getDate()); }
+  function esc(t) { return String(t).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); }
+  function anunciar(t) { var a = $('anuncio'); a.textContent = ''; setTimeout(function () { a.textContent = t; }, 30); }
+
+  // ── Salvar / ler o estado ───────────────────────────────────────────
+  function serializar() {
+    var m = {};
+    Array.from(S.marcados.keys()).sort(function (a, b) { return a - b; }).forEach(function (i) { m[i] = S.marcados.get(i); });
+    return JSON.stringify({ v: 1, t: VERSAO_TABELA, m: m });
+  }
+  function lerEstado(texto) {
+    var mapa = new Map();
+    if (!texto) return mapa;
+    try {
+      var o = JSON.parse(texto);
+      if (!o || typeof o.m !== 'object' || (o.t && o.t !== VERSAO_TABELA)) return mapa;
+      Object.keys(o.m).forEach(function (k) {
+        var i = Number(k), d = o.m[k];
+        if (Number.isInteger(i) && i >= 0 && i < CELULAS.length && typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d)) mapa.set(i, d);
+      });
+    } catch (e) { /* estado ilegível = tabela vazia */ }
+    return mapa;
+  }
+
+  // ── Montar a tabela (uma vez) ───────────────────────────────────────
+  function montar() {
+    var cont = $('rodadas'), abas = $('abas');
+    RODS.forEach(function (rod) {
+      var sec = document.createElement('div');
+      sec.className = 'rodada'; sec.id = 'rod-' + rod.r;
+      sec.innerHTML =
+        '<div class="rod-cab"><h3>Rodada ' + (rod.r + 1) + ' <span class="ok-rod">Concluída</span></h3><b data-rv></b>' +
+        '<small>R$\u00a010 a ' + brl(rod.n * 10) + '</small><small data-rc></small></div>' +
+        '<div class="barra fina" aria-hidden="true"><span data-rf></span></div>' +
+        '<div class="grade" role="group" aria-label="Rodada ' + (rod.r + 1) + '"></div>';
+      var grade = sec.querySelector('.grade');
+      rod.cel.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cel'; b.setAttribute('data-i', c.i);
+        b.innerHTML = '<span class="rs" aria-hidden="true">R$</span><span class="v" aria-hidden="true">' + c.valor + '</span>' +
+          '<svg class="ic ok" aria-hidden="true"><use href="#i-check"/></svg>';
+        grade.appendChild(b); c.el = b;
+      });
+      if (rod.n < 50) {
+        var f = document.createElement('div');
+        f.className = 'cel vazia' + (rod.r === RODS.length - 1 ? ' trofeu' : '');
+        f.setAttribute('aria-hidden', 'true');
+        if (rod.r === RODS.length - 1) f.innerHTML = '<svg class="ic"><use href="#i-trophy"/></svg>';
+        grade.appendChild(f);
+      }
+      rod.el = sec; cont.appendChild(sec);
+
+      var aba = document.createElement('button');
+      aba.type = 'button'; aba.className = 'aba'; aba.setAttribute('data-aba', rod.r);
+      aba.setAttribute('aria-controls', 'rod-' + rod.r);
+      aba.innerHTML = 'Rodada ' + (rod.r + 1) + '<small data-ap>0%</small>';
+      abas.appendChild(aba); rod.aba = aba;
+    });
+  }
+
+  function escolherAba(r) {
+    S.aba = r;
+    RODS.forEach(function (rod) {
+      rod.el.classList.toggle('ativa', rod.r === r);
+      rod.aba.setAttribute('aria-pressed', rod.r === r ? 'true' : 'false');
+    });
+  }
+  function primeiraAbaAberta() {
+    for (var r = 0; r < RODS.length; r++) { if (contarRodada(r).cas < RODS[r].n) return r; }
+    return 0;
+  }
+  function contarRodada(r) {
+    var v = 0, cas = 0;
+    RODS[r].cel.forEach(function (c) { if (S.marcados.has(c.i)) { v += c.valor; cas++; } });
+    return { v: v, cas: cas };
+  }
+
+  // ── Atualizar a tela ────────────────────────────────────────────────
+  function atualizar() {
+    var total = 0, rodFeitas = 0;
+    CELULAS.forEach(function (c) {
+      var g = S.marcados.has(c.i);
+      if (g) total += c.valor;
+      c.el.classList.toggle('g', g);
+      c.el.setAttribute('aria-pressed', g ? 'true' : 'false');
+      c.el.setAttribute('aria-label', brl(c.valor) + ', rodada ' + (c.r + 1) + (g ? ', guardado' : ', a guardar'));
+    });
+    RODS.forEach(function (rod) {
+      var x = contarRodada(rod.r), feita = x.cas === rod.n;
+      if (feita) rodFeitas++;
+      rod.el.classList.toggle('concluida', feita);
+      rod.el.querySelector('[data-rv]').textContent = brl(x.v) + ' de ' + brl(rod.total);
+      rod.el.querySelector('[data-rc]').textContent = x.cas + ' de ' + rod.n + ' casinhas';
+      rod.el.querySelector('[data-rf]').style.width = (x.v / rod.total * 100) + '%';
+      rod.aba.classList.toggle('feita', feita);
+      rod.aba.querySelector('[data-ap]').textContent = feita ? 'Concluída' : pctTxt(x.v / rod.total);
+    });
+    var p = total / SOMA, falta = SOMA - total;
+    $('p-guardado').textContent = brl(total);
+    $('p-fill').style.width = (p * 100) + '%';
+    $('p-barra').setAttribute('aria-valuenow', String(Math.round(p * 1000) / 10));
+    $('p-pct').textContent = pctTxt(p) + ' concluído';
+    $('p-falta').textContent = falta > 0 ? 'Falta ' + brl(falta) : 'Nada falta!';
+    $('p-cas').textContent = S.marcados.size + ' de ' + CELULAS.length;
+    $('p-rod').textContent = rodFeitas + ' de ' + RODS.length;
+    $('t-fill').style.width = (p * 100) + '%';
+    $('t-pct').textContent = pctTxt(p);
+    $('t-resumo').innerHTML = brl(total) + ' de ' + brl(SOMA) + (falta > 0 ? '<span class="tf"> · falta ' + brl(falta) + '</span>' : '');
+    raiz.classList.toggle('completo', S.marcados.size === CELULAS.length);
+    atualizarPlano(total);
+  }
+
+  // Meta do mês: o que faltava no começo do mês dividido pelos meses até dezembro de 2027 (contando o atual)
+  function atualizarPlano(total) {
+    var hoje = new Date();
+    var meses = (PRAZO_ANO * 12 + PRAZO_MES - 1) - (hoje.getFullYear() * 12 + hoje.getMonth()) + 1;
+    var mesAtual = hoje.getFullYear() + '-' + dois(hoje.getMonth() + 1);
+    var nomeMes = MESES[hoje.getMonth()];
+    var antes = 0, casAntes = 0, noMes = 0;
+    S.marcados.forEach(function (d, i) {
+      var v = CELULAS[i].valor;
+      if (d.slice(0, 7) < mesAtual) { antes += v; casAntes++; } else noMes += v;
+    });
+    var falta = SOMA - total;
+    if (meses <= 0) {
+      $('m-tit').textContent = 'Prazo encerrado';
+      $('m-meta').textContent = brl(falta);
+      $('m-fill').style.width = (total / SOMA * 100) + '%';
+      $('m-feito').textContent = brl(noMes) + ' guardados em ' + nomeMes;
+      $('m-pct').textContent = pctTxt(total / SOMA);
+      $('m-texto').innerHTML = 'O prazo de dezembro de 2027 passou, mas dá para continuar: faltam <b>' + brl(falta) + '</b> para os R$\u00a050.000.';
+      return;
+    }
+    var faltaIni = SOMA - antes;
+    var meta = Math.max(10, Math.ceil(faltaIni / meses / 10) * 10);
+    var cas = Math.ceil((CELULAS.length - casAntes) / meses);
+    $('m-tit').textContent = 'Meta de ' + nomeMes;
+    $('m-meta').textContent = brl(meta);
+    $('m-fill').style.width = Math.min(100, noMes / meta * 100) + '%';
+    $('m-feito').textContent = brl(noMes) + ' guardados em ' + nomeMes;
+    $('m-pct').textContent = pctTxt(Math.min(1, noMes / meta));
+    var t;
+    if (noMes >= meta) t = '<b>Meta de ' + nomeMes + ' batida!</b> O que você guardar a mais diminui a meta dos próximos meses.';
+    else if (meses === 1) t = 'Último mês do desafio: guarde <b>' + brl(falta) + '</b> para fechar os R$\u00a050.000.';
+    else t = 'Faltam <b>' + meses + ' meses</b> até dezembro de 2027 (contando este). Guardando cerca de <b>' + brl(meta) + ' por mês</b> (≈ ' + cas + ' casinhas), você chega lá.';
+    $('m-texto').innerHTML = t;
+  }
+
+  // ── Trava: o que aparece por cima da tabela ─────────────────────────
+  function mostrarTrava() {
+    var pronto = S.fase === 'pronto';
+    area.classList.toggle('travada', !pronto);
+    $('rodadas').toggleAttribute('inert', !pronto);
+    raiz.classList.toggle('logado', pronto);
+    var aviso = $('p-aviso-txt');
+    if (pronto) {
+      $('cta-ok-txt').innerHTML = (S.nome ? '<b>Olá, ' + esc(S.nome) + '!</b> ' : '<b>Tudo certo!</b> ') +
+        (S.demo ? 'Modo de teste: a tabela fica salva só neste navegador.' : 'Sua tabela fica salva na sua conta.');
+      aviso.textContent = S.demo ? 'Modo de teste: nada é enviado ao site.' : 'Cada casinha que você marca é salva na sua conta automaticamente.';
+      return;
+    }
+    aviso.textContent = 'Entre na sua conta para começar a marcar a sua tabela.';
+    var card = $('trava-card'), h = '';
+    if (S.fase === 'carregando') {
+      h = '<div class="giro" aria-hidden="true"></div><h3>Abrindo a sua tabela…</h3><p>Só um instante, estamos conferindo a sua conta.</p>';
+    } else if (S.fase === 'visitante') {
+      h = '<div class="trava-ic"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>' +
+        '<h3>Entre para usar a sua tabela</h3>' +
+        '<p>É grátis. Cada casinha que você marcar fica salva na sua conta da Import Money.</p>' +
+        '<div class="trava-btns">' +
+        '<button type="button" class="btn btn-p" data-login="signup">Criar conta grátis</button>' +
+        '<button type="button" class="btn btn-s" data-login="login">Já tenho conta</button></div>' +
+        '<p class="trava-nota' + (S.notaTrava && S.erroTrava ? ' erro' : '') + '">' + esc(S.notaTrava || 'Dá para entrar com e-mail, Google ou Facebook.') + '</p>';
+    } else if (S.fase === 'erro' || S.fase === 'semresposta') {
+      h = '<div class="trava-ic alerta"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></div>' +
+        '<h3>' + (S.fase === 'erro' ? 'Não consegui abrir a sua tabela' : 'O site está demorando para responder') + '</h3>' +
+        '<p>' + esc(S.erroTrava || 'Verifique a sua internet e tente de novo.') + '</p>' +
+        '<div class="trava-btns"><button type="button" class="btn btn-p" data-acao="tentar">Tentar de novo</button></div>';
+    } else if (S.fase === 'fora') {
+      // vitrine (desafio.importmoney.com) ou o arquivo aberto sozinho: o login e a tabela salva ficam na página do Wix
+      h = '<div class="trava-ic"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>' +
+        '<h3>Entre para usar a sua tabela</h3>' +
+        '<p>É grátis. A tabela fica no site da Import Money: entre na sua conta e cada casinha que você marcar fica salva.</p>' +
+        '<div class="trava-btns">' +
+        '<a class="btn btn-p" href="' + linkDoSite('signup') + '" target="_top">Criar conta grátis</a>' +
+        '<a class="btn btn-s" href="' + linkDoSite('login') + '" target="_top">Já tenho conta</a></div>' +
+        '<p class="trava-nota">Você vai para a página do desafio no site da Import Money.</p>';
+    }
+    card.innerHTML = h;
+    marcarBotoesLogin();
+  }
+  function marcarBotoesLogin() {
+    document.querySelectorAll('[data-login]').forEach(function (b) {
+      if (S.entrando) { b.setAttribute('aria-busy', 'true'); b.disabled = true; }
+      else { b.removeAttribute('aria-busy'); b.disabled = false; }
+    });
+  }
+
+  // ── Conversa com o código da página do Wix ──────────────────────────
+  function enviar(m) { try { window.parent.postMessage(m, '*'); } catch (e) { /* sem Wix */ } }
+  var timerCarga = null;
+  function pedirDados() {
+    if (!NO_WIX || S.fase === 'pronto') return;
+    enviar({ tipo: 'D50_PRONTO' });
+    clearTimeout(timerCarga);
+    timerCarga = setTimeout(function () {
+      if (S.fase !== 'carregando') return;
+      S.fase = S.velo ? 'erro' : 'semresposta';
+      S.erroTrava = S.velo ? 'O site não respondeu a tempo. Tente de novo em instantes.' : 'Se a página acabou de abrir, espere alguns segundos e toque em "Tentar de novo".';
+      mostrarTrava();
+    }, S.velo ? 30000 : 20000);
+  }
+  function aposEntrar() {
+    S.entrando = false; S.janelaLogin = Date.now(); S.tentLogin = 0;
+    if (S.fase !== 'pronto') { S.fase = 'carregando'; mostrarTrava(); pedirDados(); }
+  }
+  // Página do desafio no Wix; ?entrar= diz qual botão a pessoa tocou na vitrine
+  function linkDoSite(modo) { return PAGINA_NO_SITE + '?entrar=' + (modo === 'signup' ? 'signup' : 'login'); }
+  function pedirLogin(modo) {
+    if (!NO_WIX) { window.top.location.href = linkDoSite(modo); return; }
+    if (S.entrando) return;
+    S.entrando = true; S.notaTrava = ''; S.erroTrava = '';
+    marcarBotoesLogin();
+    enviar({ tipo: 'D50_LOGIN', modo: modo === 'signup' ? 'signup' : 'login', reqId: 'l' + Date.now() });
+    // a janela do Wix pode ficar aberta o tempo que a pessoa quiser; se o site nunca responder, os botões voltam
+    setTimeout(function () { if (S.entrando && !S.velo) { S.entrando = false; marcarBotoesLogin(); } }, 15000);
+  }
+
+  window.addEventListener('message', function (ev) {
+    var m = ev.data;
+    if (!m || typeof m !== 'object' || typeof m.tipo !== 'string' || m.tipo.indexOf('D50_') !== 0) return;
+    switch (m.tipo) {
+      case 'D50_VELO_PRONTO':
+        S.velo = true;
+        if (S.fase !== 'pronto') { if (S.fase === 'semresposta') { S.fase = 'carregando'; mostrarTrava(); } pedirDados(); }
+        break;
+      case 'D50_DADOS':
+        S.velo = true; clearTimeout(timerCarga);
+        var membro = String(m.membro || '');
+        var mesmo = membro && membro === S.membro;
+        if (S.fase === 'pronto' && mesmo) break;                 // resposta repetida: nada muda
+        var pendente = mesmo && S.versaoLocal !== S.versaoSalva; // marcou antes da sessão cair: mantém o que está na tela
+        if (!pendente) { S.marcados = lerEstado(m.estado); S.versaoLocal = S.versaoSalva = 0; }
+        S.membro = membro; S.nome = String(m.nome || '').slice(0, 30);
+        S.fase = 'pronto'; S.entrando = false; S.erroTrava = ''; S.notaTrava = '';
+        escolherAba(primeiraAbaAberta());
+        atualizar(); mostrarTrava();
+        mostrarStatus(pendente ? 'salvando' : 'salvo');
+        if (pendente) agendarSalvar(300);
+        break;
+      case 'D50_NAO_LOGADO':
+        S.velo = true; clearTimeout(timerCarga);
+        if (S.fase === 'pronto') {                                // a sessão caiu com a tabela aberta
+          S.fase = 'visitante'; S.notaTrava = 'Sua sessão terminou. Entre de novo para continuar.'; S.erroTrava = '';
+          mostrarTrava(); mostrarStatus('');
+          break;
+        }
+        if (S.janelaLogin && Date.now() - S.janelaLogin < 20000 && S.tentLogin < 4) {
+          S.tentLogin++; setTimeout(pedirDados, 2500);            // logo depois de entrar o Wix às vezes ainda não sabe
+          break;
+        }
+        S.fase = 'visitante'; mostrarTrava();
+        break;
+      case 'D50_ERRO':
+        S.velo = true; clearTimeout(timerCarga);
+        if (S.fase === 'pronto') break;
+        S.fase = 'erro'; S.erroTrava = String(m.erro || 'Tente de novo em instantes.');
+        mostrarTrava();
+        break;
+      case 'D50_LOGADO':
+      case 'D50_LOGIN_OK':
+        S.velo = true; aposEntrar();
+        break;
+      case 'D50_LOGIN_FECHADO':
+        S.velo = true; S.entrando = false;
+        if (S.fase === 'visitante') { S.notaTrava = 'A janela foi fechada antes de terminar. Quando quiser, tente de novo.'; S.erroTrava = ''; mostrarTrava(); }
+        else marcarBotoesLogin();
+        break;
+      case 'D50_SALVO':
+        respostaSalvar(m);
+        break;
+    }
+  });
+
+  // ── Salvar na conta ─────────────────────────────────────────────────
+  var timerSalvar = null, emVoo = null, tentativas = 0;
+  function mostrarStatus(tipo) {
+    var el = $('t-status');
+    el.className = 'status' + (tipo === 'salvo' ? ' ok' : tipo === 'erro' ? ' erro' : '');
+    if (tipo === 'salvo') el.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>' + (S.demo ? 'Salvo neste navegador' : 'Salvo na sua conta');
+    else if (tipo === 'salvando') el.textContent = 'Salvando…';
+    else if (tipo === 'erro') el.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Não salvou. Tentando de novo…';
+    else el.textContent = '';
+  }
+  function agendarSalvar(ms) {
+    clearTimeout(timerSalvar);
+    mostrarStatus('salvando');
+    timerSalvar = setTimeout(salvarAgora, ms == null ? 700 : ms);
+  }
+  function salvarAgora() {
+    timerSalvar = null;
+    if (S.fase !== 'pronto') return;
+    if (S.versaoLocal === S.versaoSalva) { mostrarStatus('salvo'); return; }
+    if (emVoo) return;                                     // a resposta do envio atual chama de novo
+    var versao = S.versaoLocal, estado = serializar();
+    if (S.demo) {
+      try { localStorage.setItem('d50-demo-v1', estado); } catch (e) { /* sem armazenamento */ }
+      S.versaoSalva = versao; mostrarStatus('salvo'); return;
+    }
+    var reqId = 's' + Date.now() + Math.random().toString(36).slice(2, 7);
+    emVoo = { reqId: reqId, versao: versao, timer: setTimeout(function () { falhouSalvar(reqId, 'TEMPO'); }, 25000) };
+    enviar({ tipo: 'D50_SALVAR', reqId: reqId, estado: estado });
+  }
+  function respostaSalvar(m) {
+    if (!emVoo || m.reqId !== emVoo.reqId) return;
+    if (!m.ok) { falhouSalvar(m.reqId, m.codigo); return; }
+    clearTimeout(emVoo.timer);
+    S.versaoSalva = Math.max(S.versaoSalva, emVoo.versao);
+    emVoo = null; tentativas = 0;
+    if (S.versaoLocal !== S.versaoSalva) salvarAgora(); else mostrarStatus('salvo');
+  }
+  function falhouSalvar(reqId, codigo) {
+    if (!emVoo || emVoo.reqId !== reqId) return;
+    clearTimeout(emVoo.timer); emVoo = null;
+    if (codigo === 'NAO_LOGADO') {                         // a sessão caiu: pede para entrar de novo, sem perder as marcações
+      S.fase = 'visitante'; S.notaTrava = 'Sua sessão terminou. Entre de novo para salvar as últimas marcações.'; S.erroTrava = '';
+      mostrarTrava(); mostrarStatus('erro');
+      return;
+    }
+    tentativas++;
+    mostrarStatus('erro');
+    clearTimeout(timerSalvar);
+    timerSalvar = setTimeout(salvarAgora, Math.min(30000, 3000 * tentativas));
+  }
+  window.addEventListener('beforeunload', function (e) {
+    if (S.versaoLocal !== S.versaoSalva) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  // ── Marcar / desmarcar ──────────────────────────────────────────────
+  function alternar(i) {
+    if (S.fase !== 'pronto') return;
+    var c = CELULAS[i];
+    var rodAntes = contarRodada(c.r).cas === RODS[c.r].n;
+    var tudoAntes = S.marcados.size === CELULAS.length;
+    if (S.marcados.has(i)) S.marcados.delete(i);
+    else { S.marcados.set(i, hojeIso()); flutuar(c); }
+    S.versaoLocal++;
+    atualizar();
+    var falta = SOMA - Array.from(S.marcados.keys()).reduce(function (s, k) { return s + CELULAS[k].valor; }, 0);
+    var feita = contarRodada(c.r).cas === RODS[c.r].n;
+    if (S.marcados.size === CELULAS.length && !tudoAntes) {
+      anunciar('Parabéns! Você completou o desafio e juntou R$ 50.000.');
+      festejarRodada(c.r); confete(area); confete($('progresso'));
+    } else if (feita && !rodAntes) {
+      anunciar('Rodada ' + (c.r + 1) + ' concluída! Falta ' + brl(falta) + '.');
+      festejarRodada(c.r); confete(c.el.closest('.rodada'));
+    } else {
+      anunciar(brl(c.valor) + (S.marcados.has(i) ? ' guardado' : ' desmarcado') + '. Falta ' + brl(falta) + '.');
+    }
+    agendarSalvar();
+  }
+  function flutuar(c) {
+    c.el.classList.remove('pop'); void c.el.offsetWidth; c.el.classList.add('pop');
+    if (reduzMov) return;
+    var s = document.createElement('span');
+    s.className = 'flut'; s.textContent = '+' + brl(c.valor);
+    c.el.appendChild(s);
+    setTimeout(function () { s.remove(); }, 950);
+  }
+  function festejarRodada(r) {
+    var el = RODS[r].el;
+    el.classList.remove('festeja'); void el.offsetWidth; el.classList.add('festeja');
+  }
+  function confete(alvo) {
+    if (reduzMov || !alvo) return;
+    var cores = ['#2ec98e', '#ffd23f', '#62e6b3', '#ffffff', '#5bc4f5'];
+    var box = document.createElement('div');
+    box.className = 'confete';
+    for (var k = 0; k < 36; k++) {
+      var s = document.createElement('i');
+      s.style.left = (Math.random() * 100) + '%';
+      s.style.background = cores[k % cores.length];
+      s.style.animationDelay = (Math.random() * 0.5) + 's';
+      s.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
+      box.appendChild(s);
+    }
+    if (getComputedStyle(alvo).position === 'static') alvo.style.position = 'relative';
+    alvo.appendChild(box);
+    setTimeout(function () { box.remove(); }, 3400);
+  }
+
+  // ── Cliques ─────────────────────────────────────────────────────────
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest ? ev.target : ev.target.parentElement;
+    var cel = t.closest('.cel[data-i]');
+    if (cel) { alternar(Number(cel.getAttribute('data-i'))); return; }
+    var aba = t.closest('[data-aba]');
+    if (aba) { escolherAba(Number(aba.getAttribute('data-aba'))); return; }
+    var login = t.closest('[data-login]');
+    if (login) { pedirLogin(login.getAttribute('data-login')); return; }
+    if (t.closest('[data-acao="tentar"]')) { S.fase = 'carregando'; S.erroTrava = ''; mostrarTrava(); pedirDados(); }
+  });
+
+  // ── Banners (as mesmas ilustrações do Import News) ──────────────────
+  var adSeq = 0;
+  function adMark(stroke, up, down) {
+    return '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
+      '<polygon points="16,1 28,8 28,24 16,31 4,24 4,8" fill="none" stroke="' + stroke + '" stroke-width="2.4"/>' +
+      '<polygon points="16,6 11,12 14,12 14,18.5 18,18.5 18,12 21,12" fill="' + up + '"/>' +
+      (down ? '<polygon points="16,26 21,20 18,20 18,13.5 14,13.5 14,20 11,20" fill="' + down + '"/>' : '') +
+      '</svg>';
+  }
+  function adArtFinances() {
+    var u = 'adf' + (++adSeq);
+    return '<svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">' +
+      '<defs><filter id="' + u + 's" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0b3a28" flood-opacity=".22"/></filter></defs>' +
+      '<g filter="url(#' + u + 's)"><rect x="22" y="30" width="316" height="220" rx="14" fill="#fff" stroke="#cfe3d7"/></g>' +
+      '<circle cx="38" cy="42" r="2.6" fill="#d9e6de"/><circle cx="47" cy="42" r="2.6" fill="#d9e6de"/><circle cx="56" cy="42" r="2.6" fill="#d9e6de"/>' +
+      '<text x="36" y="63" font-size="13" font-weight="800" fill="#12241b">Painel</text>' +
+      '<text x="36" y="74" font-size="6.8" fill="#6b8277">Outubro de 2026 · resumo do mês</text>' +
+      '<rect x="36" y="82" width="122" height="64" rx="9" fill="#f3f9f5" stroke="#dcebe2"/>' +
+      '<text x="46" y="97" font-size="6.8" font-weight="600" fill="#5d756a">Saldo do mês</text>' +
+      '<text x="46" y="120" font-size="17" font-weight="800" fill="#14583c">R$ 2.510,17</text>' +
+      '<rect x="46" y="129" width="92" height="3" rx="1.5" fill="#dbe7e0"/><rect x="46" y="136" width="64" height="3" rx="1.5" fill="#dbe7e0"/>' +
+      '<rect x="166" y="82" width="158" height="64" rx="9" fill="#f3f9f5" stroke="#dcebe2"/>' +
+      '<text x="176" y="97" font-size="7.5" font-weight="700" fill="#12241b">Recebimentos</text>' +
+      '<text x="176" y="114" font-size="11.5" font-weight="800" fill="#12241b">R$ 6.500,00</text>' +
+      '<text x="176" y="122" font-size="6.3" fill="#6b8277">já entrou</text>' +
+      '<rect x="176" y="129" width="138" height="5" rx="2.5" fill="#dcebe2"/><rect x="176" y="129" width="117" height="5" rx="2.5" fill="#14583c"/>' +
+      '<text x="176" y="141" font-size="6.2" fill="#6b8277">85% recebido</text>' +
+      '<rect x="36" y="154" width="288" height="96" rx="9" fill="#fff" stroke="#dcebe2"/>' +
+      '<text x="46" y="169" font-size="8" font-weight="700" fill="#12241b">Próximos vencimentos</text>' +
+      '<text x="46" y="188" font-size="10" font-weight="800" fill="#12241b">15</text><text x="46" y="195" font-size="5.5" fill="#6b8277">OUT</text>' +
+      '<text x="70" y="189" font-size="8" font-weight="600" fill="#12241b">Energia elétrica</text>' +
+      '<text x="262" y="189" font-size="8" font-weight="600" fill="#12241b" text-anchor="end">R$ 210,20</text>' +
+      '<rect x="270" y="178" width="44" height="16" rx="8" fill="#fff" stroke="#c7dccf"/>' +
+      '<text x="292" y="188.6" font-size="6.8" font-weight="700" fill="#14583c" text-anchor="middle">Paguei</text>' +
+      '<line x1="46" y1="200" x2="314" y2="200" stroke="#edf3ef"/>' +
+      '<text x="46" y="214" font-size="10" font-weight="800" fill="#12241b">16</text><text x="46" y="221" font-size="5.5" fill="#6b8277">OUT</text>' +
+      '<text x="70" y="215" font-size="8" font-weight="600" fill="#12241b">Hortifruti da esquina</text>' +
+      '<text x="262" y="215" font-size="8" font-weight="600" fill="#12241b" text-anchor="end">R$ 197,12</text>' +
+      '<rect x="270" y="204" width="44" height="16" rx="8" fill="#fff" stroke="#c7dccf"/>' +
+      '<text x="292" y="214.6" font-size="6.8" font-weight="700" fill="#14583c" text-anchor="middle">Paguei</text>' +
+      '<rect x="228" y="14" width="108" height="22" rx="11" fill="#14583c"/>' +
+      '<text x="282" y="28.5" font-size="7.8" font-weight="700" fill="#fff" text-anchor="middle">+ Novo lançamento</text>' +
+      '</svg>';
+  }
+  function adArtMoney() {
+    var u = 'adm' + (++adSeq);
+    var pts = [[36,166],[60,160],[84,163],[108,148],[132,150],[156,134],[180,138],[204,122],[228,126],[252,112],[276,116],[300,104],[324,98]];
+    var line = pts.map(function (p) { return p.join(','); }).join(' ');
+    return '<svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">' +
+      '<defs>' +
+      '<linearGradient id="' + u + 'a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2ec98e" stop-opacity=".38"/><stop offset="1" stop-color="#2ec98e" stop-opacity="0"/></linearGradient>' +
+      '<filter id="' + u + 's" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".55"/></filter>' +
+      '</defs>' +
+      '<g filter="url(#' + u + 's)"><rect x="22" y="30" width="316" height="220" rx="14" fill="#0c1310" stroke="#24322b"/></g>' +
+      '<circle cx="38" cy="42" r="2.6" fill="#24322b"/><circle cx="47" cy="42" r="2.6" fill="#24322b"/><circle cx="56" cy="42" r="2.6" fill="#24322b"/>' +
+      '<text x="36" y="63" font-size="7" font-weight="600" fill="#8fa398">Patrimônio atual</text>' +
+      '<text x="36" y="86" font-size="21" font-weight="800" fill="#f3f7f4">R$ 60.152,00</text>' +
+      '<rect x="262" y="68" width="62" height="18" rx="9" fill="rgba(46,201,142,.16)" stroke="#2a6b52"/>' +
+      '<polygon points="272,80.5 276,73.5 280,80.5" fill="#2ec98e"/>' +
+      '<text x="285" y="80" font-size="8" font-weight="700" fill="#2ec98e">34,4%</text>' +
+      '<g stroke="#1a2520"><line x1="36" y1="106" x2="324" y2="106"/><line x1="36" y1="126" x2="324" y2="126"/><line x1="36" y1="146" x2="324" y2="146"/><line x1="36" y1="166" x2="324" y2="166"/></g>' +
+      '<polygon points="' + line + ' 324,176 36,176" fill="url(#' + u + 'a)"/>' +
+      '<polyline points="' + line + '" fill="none" stroke="#2ec98e" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="324" cy="98" r="7" fill="rgba(46,201,142,.25)"/><circle cx="324" cy="98" r="3.2" fill="#2ec98e"/>' +
+      '<rect x="36" y="184" width="136" height="66" rx="9" fill="#111a16" stroke="#1f2c26"/>' +
+      '<text x="46" y="198" font-size="6.6" fill="#8fa398">Resultado total</text>' +
+      '<text x="46" y="214" font-size="11" font-weight="800" fill="#2ec98e">+R$ 16.756,00</text>' +
+      '<rect x="180" y="184" width="144" height="66" rx="9" fill="#111a16" stroke="#1f2c26"/>' +
+      '<text x="190" y="198" font-size="6.6" fill="#8fa398">Proventos recebidos</text>' +
+      '<text x="190" y="214" font-size="11" font-weight="800" fill="#f3f7f4">R$ 1.263,00</text>' +
+      '<rect x="228" y="14" width="108" height="22" rx="11" fill="#2ec98e"/>' +
+      '<text x="282" y="28.5" font-size="7.8" font-weight="800" fill="#04140c" text-anchor="middle">Importar nota</text>' +
+      '</svg>';
+  }
+  var BANNERS = [
+    { cls: 'ad-fin', href: LINK_FINANCES, chip: 'Import Finances', mark: function () { return adMark('#14583c', '#14583c', ''); },
+      title: 'Descubra quanto sobra todo mês para a caixinha',
+      text: 'Importe extratos e faturas, acompanhe as contas a pagar e veja o saldo do mês em um painel só, sem planilha.',
+      btn: 'Começar grátis', art: adArtFinances },
+    { cls: 'ad-mon', href: LINK_MONEY, chip: 'Import Money', mark: function () { return adMark('#2ec98e', '#ffffff', '#2ec98e'); },
+      title: 'Quando a caixinha crescer, acompanhe seus investimentos',
+      text: 'Patrimônio, proventos e rentabilidade da sua carteira de ações em um só painel, com as notas de corretagem e o Imposto de Renda organizados.',
+      btn: 'Conhecer a Import Money', art: adArtMoney }
+  ];
+  $('promo').innerHTML = BANNERS.map(function (d) {
+    return '<a class="ad ' + d.cls + '" href="' + d.href + '" target="_blank" rel="noopener" aria-label="' + d.chip + ': ' + d.btn.toLowerCase() + ' (abre em outra aba)">' +
+      '<div class="ad-art">' + d.art() + '</div>' +
+      '<div class="ad-copy"><span class="ad-chip">' + d.mark() + d.chip + '</span>' +
+      '<div class="ad-title">' + d.title + '</div><div class="ad-text">' + d.text + '</div>' +
+      '<span class="ad-btn">' + d.btn + ' →</span><span class="ad-note">Ilustração com dados de exemplo.</span></div></a>';
+  }).join('');
+
+  // ── Fontes (sem travar a página se o Google Fonts demorar) ──────────
+  try {
+    var pre = document.createElement('link'); pre.rel = 'preconnect'; pre.href = 'https://fonts.gstatic.com'; pre.crossOrigin = '';
+    var css = document.createElement('link'); css.rel = 'stylesheet';
+    css.href = 'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
+    document.head.appendChild(pre); document.head.appendChild(css);
+  } catch (e) { /* fica a fonte do sistema */ }
+
+  // ── Começo ──────────────────────────────────────────────────────────
+  montar();
+  escolherAba(0);
+  if (!NO_WIX) {
+    if (/[?&]demo=1\b/.test(location.search)) {
+      var salvo = null;
+      try { salvo = localStorage.getItem('d50-demo-v1'); } catch (e) { /* sem armazenamento */ }
+      S.demo = true; S.fase = 'pronto'; S.marcados = lerEstado(salvo);
+      escolherAba(primeiraAbaAberta());
+      mostrarStatus('salvo');
+    } else {
+      S.fase = 'fora';
+    }
+  }
+  atualizar();
+  mostrarTrava();
+  if (NO_WIX) pedirDados();
+  window.__d50 = { S: S, CELULAS: CELULAS, SOMA: SOMA, serializar: serializar };
+})();
+</script>
+</body>
+</html>
