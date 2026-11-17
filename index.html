@@ -302,7 +302,7 @@
         <div class="fato"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><b>dez/2027</b><small>prazo do desafio</small></div>
       </div>
       <ol class="passos">
-        <li><div><b>Crie sua conta grátis ou entre</b><span>Seu progresso fica salvo e aparece no celular e no computador.</span></div></li>
+        <li><div><b>Crie sua conta grátis ou entre</b><span>Você entra no Import Finances e o desafio abre direto na sua tabela. Seu progresso fica salvo no celular e no computador.</span></div></li>
         <li><div><b>Guarde o valor de uma casinha</b><span>No cofrinho, na caixinha do banco ou na poupança. Escolha o valor que couber no seu mês.</span></div></li>
         <li><div><b>Toque na casinha para marcar</b><span>A barra de progresso atualiza na hora. Tocou errado? Toque de novo para desmarcar.</span></div></li>
       </ol>
@@ -377,7 +377,7 @@
       <div class="qa"><h3>E se eu marcar uma casinha errada?</h3><p>Toque de novo nela para desmarcar. A barra de progresso volta na hora.</p></div>
       <div class="qa"><h3>Onde fica salvo o meu progresso?</h3><p>Na sua conta da Import Money. Entre com o mesmo e-mail no celular ou no computador e a tabela aparece do jeito que você deixou.</p></div>
       <div class="qa"><h3>Por que as rodadas 3 e 4 vão até R$&nbsp;490?</h3><p>Para a soma fechar em R$&nbsp;50.000 exatos: duas rodadas de R$&nbsp;10 a R$&nbsp;500 (R$&nbsp;12.750 cada) e duas de R$&nbsp;10 a R$&nbsp;490 (R$&nbsp;12.250 cada).</p></div>
-      <div class="qa"><h3>O desafio é gratuito?</h3><p>Sim. Basta criar a sua conta grátis na Import Money para usar a tabela e salvar o seu progresso.</p></div>
+      <div class="qa"><h3>O desafio é gratuito?</h3><p>Sim. Basta criar a sua conta grátis na Import Money. O desafio fica numa aba do Import Finances, que tem plano gratuito, e o seu progresso fica salvo na conta.</p></div>
     </div>
   </section>
   <p class="wrap rodape">O Desafio R$&nbsp;50 mil é uma ferramenta de organização para guardar dinheiro. Não é recomendação de investimento.</p>
@@ -394,7 +394,7 @@
   var PRAZO_ANO = 2027, PRAZO_MES = 12;            // o desafio vai até dezembro de 2027 (inclusive)
   var VERSAO_TABELA = '4r-50k';                    // muda só se a tabela mudar (o backend recusa outra versão)
   var RODADAS = [50, 50, 49, 49];                  // casinhas por rodada (R$ 10 em R$ 10): 12.750 + 12.750 + 12.250 + 12.250
-  var PAGINA_NO_SITE = 'https://www.importmoney.com/desafio-50-mil';
+  var FINANCES_DESAFIO = 'https://www.importmoney.com/import-finances?aba=desafio'; // a plataforma, direto na aba do desafio
   var LINK_FINANCES = 'https://financas.importmoney.com/';
   var LINK_MONEY = 'https://invest.importmoney.com/';
   var MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
@@ -617,14 +617,19 @@
         '<p>' + esc(S.erroTrava || 'Verifique a sua internet e tente de novo.') + '</p>' +
         '<div class="trava-btns"><button type="button" class="btn btn-p" data-acao="tentar">Tentar de novo</button></div>';
     } else if (S.fase === 'fora') {
-      // vitrine (desafio.importmoney.com) ou o arquivo aberto sozinho: o login e a tabela salva ficam na página do Wix
+      // vitrine (desafio.importmoney.com) ou o arquivo aberto sozinho: a pessoa entra no Import Finances (mesma janela), que abre na aba do desafio
       h = '<div class="trava-ic"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>' +
         '<h3>Entre para usar a sua tabela</h3>' +
-        '<p>É grátis. A tabela fica no site da Import Money: entre na sua conta e cada casinha que você marcar fica salva.</p>' +
+        '<p>É grátis. Você entra no Import Finances, a plataforma de controle financeiro da Import Money, e o desafio abre direto na sua tabela.</p>' +
         '<div class="trava-btns">' +
         '<a class="btn btn-p" href="' + linkDoSite('signup') + '" target="_top">Criar conta grátis</a>' +
         '<a class="btn btn-s" href="' + linkDoSite('login') + '" target="_top">Já tenho conta</a></div>' +
-        '<p class="trava-nota">Você vai para a página do desafio no site da Import Money.</p>';
+        '<p class="trava-nota">Cada casinha que você marcar fica salva na sua conta.</p>';
+    } else if (S.fase === 'indo') {
+      // o código da página está levando quem já entrou para o Import Finances (D50_IR); o link só ajuda se a troca de página não acontecer
+      h = '<div class="giro" aria-hidden="true"></div><h3>Abrindo o Import Finances…</h3>' +
+        '<p>O desafio abre lá, na aba "Desafio R$ 50 mil". Só um instante.</p>' +
+        '<p class="trava-nota"><a href="' + FINANCES_DESAFIO + '" target="_top" style="color:var(--green)">Se não abrir sozinho, toque aqui.</a></p>';
     }
     card.innerHTML = h;
     marcarBotoesLogin();
@@ -640,7 +645,7 @@
   function enviar(m) { try { window.parent.postMessage(m, '*'); } catch (e) { /* sem Wix */ } }
   var timerCarga = null;
   function pedirDados() {
-    if (!NO_WIX || S.fase === 'pronto') return;
+    if (!NO_WIX || S.fase === 'pronto' || S.fase === 'indo') return;
     enviar({ tipo: 'D50_PRONTO' });
     clearTimeout(timerCarga);
     timerCarga = setTimeout(function () {
@@ -652,10 +657,10 @@
   }
   function aposEntrar() {
     S.entrando = false; S.janelaLogin = Date.now(); S.tentLogin = 0;
-    if (S.fase !== 'pronto') { S.fase = 'carregando'; mostrarTrava(); pedirDados(); }
+    if (S.fase !== 'pronto' && S.fase !== 'indo') { S.fase = 'carregando'; mostrarTrava(); pedirDados(); }
   }
-  // Página do desafio no Wix; ?entrar= diz qual botão a pessoa tocou na vitrine
-  function linkDoSite(modo) { return PAGINA_NO_SITE + '?entrar=' + (modo === 'signup' ? 'signup' : 'login'); }
+  // Import Finances na aba do desafio; &entrar= diz qual botão a pessoa tocou na vitrine (a janela de conta abre em "Criar conta" ou "Já tenho conta")
+  function linkDoSite(modo) { return FINANCES_DESAFIO + '&entrar=' + (modo === 'signup' ? 'signup' : 'login'); }
   function pedirLogin(modo) {
     if (!NO_WIX) { window.top.location.href = linkDoSite(modo); return; }
     if (S.entrando) return;
@@ -669,7 +674,12 @@
   window.addEventListener('message', function (ev) {
     var m = ev.data;
     if (!m || typeof m !== 'object' || typeof m.tipo !== 'string' || m.tipo.indexOf('D50_') !== 0) return;
+    if (S.fase === 'indo') return;                            // já está indo para o Import Finances: nada mais muda a tela
     switch (m.tipo) {
+      case 'D50_IR':
+        S.velo = true; clearTimeout(timerCarga); S.entrando = false;
+        S.fase = 'indo'; mostrarTrava(); mostrarStatus('');
+        break;
       case 'D50_VELO_PRONTO':
         S.velo = true;
         if (S.fase !== 'pronto') { if (S.fase === 'semresposta') { S.fase = 'carregando'; mostrarTrava(); } pedirDados(); }
